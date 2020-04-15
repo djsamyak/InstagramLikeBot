@@ -39,20 +39,20 @@ choice=input(f"\nCONFIRM @{like_profile_handle}. Press Y to confirm. Press N to 
 if(choice == 'Y'):
     browser.get(f"https://www.instagram.com/{like_profile_handle}")
 
-    #time.sleep(2)
+    time.sleep(2)
     total_posts=browser.find_element_by_css_selector("#react-root > section > main > div > header > section > ul > li:nth-child(1) > span > span")
 
     post_Opener=browser.find_element_by_css_selector("#react-root > section > main > div > div._2z6nI > article > div > div > div:nth-child(1) > div:nth-child(1) > a > div.eLAPa > div._9AhH0")
     post_Opener.click()
 
-    #time.sleep(0.7)
+    time.sleep(0.7)
     i=0
     likeCounter=0
     alreadyLiked=0
 
     for i in range(int(total_posts.text)):
 
-        #time.sleep(1.5)
+        time.sleep(1.5)
         like_Button=browser.find_element_by_css_selector('body > div._2dDPU.CkGkG > div.zZYga > div > article > div.eo2As > section.ltpMr.Slqrh > span.fr66n > button > svg')
         if(browser.find_element_by_css_selector('body > div._2dDPU.CkGkG > div.zZYga > div > article > div.eo2As > section.ltpMr.Slqrh > span.fr66n > button > svg > path').value_of_css_property('fill') == 'rgb(237, 73, 86)'):
             print("\n \t Image already liked! \t \n")
@@ -60,7 +60,7 @@ if(choice == 'Y'):
         else:
             like_Button.click()
             likeCounter+=1
-            time.sleep(0.1)
+            time.sleep(0.8)
 
         if(i==(int(total_posts.text)-1)):
             pass
